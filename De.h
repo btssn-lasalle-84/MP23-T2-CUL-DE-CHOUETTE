@@ -1,12 +1,19 @@
 #ifndef DE_H
 #define DE_H
 
-#include <iostream>
+#define FACES 7
 
 class De
 {
   private:
     unsigned int valeur;
     unsigned int nbFaces;
+
+  public:
+    De(unsigned int valeur, unsigned int nbFaces = FACES);
+    ~De();
+
+    void         lancer() const;
+    unsigned int getValeur() const;
 }
-#endif // De_H
+#endif // DE_H
