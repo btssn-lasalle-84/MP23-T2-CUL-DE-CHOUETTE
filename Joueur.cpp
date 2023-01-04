@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Joueur::Joueur(string nom = "", unsigned int score = "SCORE_DEBUT", bool aGagne = false)
+Joueur::Joueur(string nom) :  nom(nom), score(SCORE_DEBUT), aGagne(false)
 {
 }
 
@@ -26,14 +26,7 @@ void setScore(unsigned int score)
     this->score = score;
 }
 
-bool aGagne()
+bool aGagne() const
 {
-    if(getScore() >= 500)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return aGagne;
 }
