@@ -3,7 +3,7 @@
 
 class De;
 
-enum Regle {};
+enum Regle;
 
 class PartieCulDeChouette
 {
