@@ -3,19 +3,22 @@
 
 #define SCORE_DEBUT 0
 
+#include <string>
+
 class Joueur
 {
   private:
-    string       nom;
+    std::string  nom;
     unsigned int score;
     bool         aGagne;
 
   public:
-    Joueur(string nom = "", unsigned int score = "SCORE_DEBUT", bool aGagne = false);
+    Joueur(std::string nom = "");
     string       getNom() const;
     unsigned int getScore() const;
-    void         setNom(string nom);
+    void         setNom(std::string nom);
     void         setScore(unsigned score);
     bool         aGagne();
 }
+
 #endif // JOUEUR_H
