@@ -7,11 +7,11 @@ enum Regle;
 
 class PartieCulDeChouette
 {
-    private:
-        bool estTerminee;
-        unsigned int nbJoueurs;
-        Regle regle;
-        De* de;
+  private:
+    bool         estTerminee;
+    unsigned int nbJoueurs;
+    Regle        regle;
+    De*          de;
 }
 
 #endif
