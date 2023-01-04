@@ -13,7 +13,7 @@ class De
     De(unsigned int valeur, unsigned int nbFaces = FACES);
     ~De();
 
-    void         lancer() const;
+    void         lancer();
     unsigned int getValeur() const;
-}
+};
 #endif // DE_H

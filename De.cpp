@@ -1,5 +1,5 @@
-#include <stdlib>
-#include <time>
+#include <stdlib.h>
+#include <time.h>
 #include "De.h"
 
 using namespace std;
@@ -13,10 +13,10 @@ De::~De()
 {
 }
 
-void De::lancer() const
+void De::lancer()
 {
-    srand(time(NULL));
-    this->valeur = rand() % 7 + 1;
+    srand(time(nullptr));
+    this->valeur = rand() % FACES + 1;
 }
 
 unsigned int De::getValeur() const

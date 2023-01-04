@@ -13,11 +13,10 @@ class Joueur
     bool         aGagne;
 
   public:
-    Joueur(std::string nom = "");
-    string       getNom() const;
+    Joueur(std::string& nom);
+    std::string  getNom() const;
     unsigned int getScore() const;
-    void         setNom(std::string nom);
+    void         setNom(std::string& nom);
     void         setScore(unsigned int score);
-    bool         aGagne() const;
-}
+};
 #endif // JOUEUR_H
