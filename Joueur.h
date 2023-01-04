@@ -20,5 +20,4 @@ class Joueur
     void         setScore(unsigned int score);
     bool         aGagne() const;
 }
-
 #endif // JOUEUR_H
