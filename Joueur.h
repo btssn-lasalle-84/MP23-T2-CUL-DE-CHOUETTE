@@ -1,7 +1,8 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
 
-#define START_SCORE 0
+#define SCORE_DEBUT 0
+
 class Joueur
 {
   private:
@@ -10,7 +11,7 @@ class Joueur
     bool         aGagne;
 
   public:
-    Joueur(string nom = "", unsigned int score = "START_SCORE", bool aGagne = false);
+    Joueur(string nom = "", unsigned int score = "SCORE_DEBUT", bool aGagne = false);
     string       getNom() const;
     unsigned int getScore() const;
     void         setNom(string nom);

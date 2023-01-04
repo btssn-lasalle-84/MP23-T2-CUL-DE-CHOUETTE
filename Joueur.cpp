@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Joueur::Joueur(string nom = "", unsigned int score = "START_SCORE", bool aGagne = false)
+Joueur::Joueur(string nom = "", unsigned int score = "SCORE_DEBUT", bool aGagne = false)
 {
 }
 
