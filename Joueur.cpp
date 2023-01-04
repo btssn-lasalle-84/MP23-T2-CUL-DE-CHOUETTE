@@ -1,8 +1,8 @@
-#include "Joueur.h"
+#include Joueur_H
 
 using namespace std;
 
-Joueur::Joueur(string nom) : nom(nom), score(SCORE_DEBUT), aGagne(false)
+Joueur::Joueur(string nom) :  nom(nom), score(SCORE_DEBUT), aGagne(false)
 {
 }
 
@@ -28,5 +28,5 @@ void setScore(unsigned int score)
 
 bool aGagne() const
 {
-    return this->aGagne;
+    return aGagne;
 }
