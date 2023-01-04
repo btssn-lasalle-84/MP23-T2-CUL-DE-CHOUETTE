@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Joueur::Joueur(string nom) : nom(nom), score(SCORE_DEBUT), aGagne(false)
+Joueur::Joueur(string& nom) : nom(nom), score(SCORE_DEBUT), aGagne(false)
 {
 }
 
@@ -16,17 +16,12 @@ unsigned int Joueur::getScore() const
     return score;
 }
 
-void setNom(string nom)
+void Joueur::setNom(string& nom)
 {
     this->nom = nom;
 }
 
-void setScore(unsigned int score)
+void Joueur::setScore(unsigned int score)
 {
     this->score = score;
-}
-
-bool aGagne() const
-{
-    return this->aGagne;
 }
