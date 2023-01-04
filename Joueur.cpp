@@ -1,4 +1,4 @@
-#include "Joueur_h"
+#include "Joueur.h"
 
 using namespace std;
 
@@ -28,5 +28,5 @@ void setScore(unsigned int score)
 
 bool aGagne() const
 {
-    return aGagne;
+    return this->aGagne;
 }
