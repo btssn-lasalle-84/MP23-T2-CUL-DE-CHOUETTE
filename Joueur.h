@@ -17,8 +17,8 @@ class Joueur
     string       getNom() const;
     unsigned int getScore() const;
     void         setNom(std::string nom);
-    void         setScore(unsigned score);
-    bool         aGagne();
+    void         setScore(unsigned int score);
+    bool         aGagne() const;
 }
 
 #endif // JOUEUR_H
