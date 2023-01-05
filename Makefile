@@ -8,10 +8,10 @@ LD = g++
 RM = rm -f
 
 
-Partie.out: Partie.o De.o Joueur.o PartieCulDeChouette.o
+CulDeChouette.out: CulDeChouette.o De.o Joueur.o PartieCulDeChouette.o
 	$(LD) -o $@ $^
 	
-Partie.o: Partie.cpp 
+CulDeChouette.o: CulDeChouette.cpp 
 	$(CXX)	$<
 
 De.o: De.cpp De.h	
