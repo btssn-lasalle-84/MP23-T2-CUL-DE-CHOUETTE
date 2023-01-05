@@ -42,7 +42,7 @@ void PartieCulDeChouette::saisirNoms()
 
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {
-        cout << "Nom Joueur : ";
+        cout << "Nom Joueur : " << '\n';
         cin >> nom;
         joueurs.push_back(Joueur(nom));
     }
@@ -81,3 +81,12 @@ void PartieCulDeChouette::lancerPartie()
     instance->saisirNoms();
     instance->afficherPartie();
 }
+
+void PartieCulDeChouette::lancerDe()
+{
+    for (int i=0; i < NB_DES; i++)
+    {
+    cout << i << '\n';
+    des[i] -> lancer();
+    }
+};
