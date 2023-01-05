@@ -7,7 +7,7 @@ using namespace std;
 PartieCulDeChouette::PartieCulDeChouette(unsigned int nbJoueurs, Regle& regle) :
     nbJoueurs(nbJoueurs), regle(regle), de(nullptr)
 {
-    for(int i = 0; i < nbJoueurs; i++)
+    for(unsigned int i = 0; i < nbJoueurs; i++)
     {
         this->joueurs.push_back(nullptr);
     }
@@ -24,7 +24,7 @@ void PartieCulDeChouette::setDe(De* de)
 
 void PartieCulDeChouette::setJoueurs(vector<Joueur*> joueurs)
 {
-    for(int i = 0; i < nbJoueurs; i++)
+    for(unsigned int i = 0; i < nbJoueurs; i++)
     {
         this->joueurs[i] = joueurs[i];
     }
