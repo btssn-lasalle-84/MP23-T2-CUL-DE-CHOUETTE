@@ -11,10 +11,12 @@ Programme qui a pour but de reproduire le jeu du 'Cul de chouette' de la série 
 3. La Chouette-Velute.
 4. Le Cul De Chouette.
 
-## Partie : 
+## Jouer une Partie : 
 
-Lancer le fichier Partie.cpp pour commencer une partie.
-
+```
+    $ make
+    $ ./Partie.o
+```
 ## Programme crée par :
 
 Nathanaël   Chansard
