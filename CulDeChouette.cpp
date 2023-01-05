@@ -13,8 +13,8 @@ int main()
 
     PartieCulDeChouette* partieCulDeChouette = PartieCulDeChouette::getInstance(nbJoueurs);    
 
-    partieCulDeChouette -> lancerPartie();
-    partieCulDeChouette -> lancerDe();
+    partieCulDeChouette->lancerPartie();
+    partieCulDeChouette->lancerDe();
 
     return 0;
 }

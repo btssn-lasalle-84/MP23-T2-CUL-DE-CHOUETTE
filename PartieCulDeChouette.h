@@ -20,7 +20,6 @@ class PartieCulDeChouette
     std::vector<Joueur> joueurs;
     std::vector<De*>    des;
 
-    void setDes();
     void saisirNoms();
     void afficherPartie() const;
 
