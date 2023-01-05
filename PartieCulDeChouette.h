@@ -12,6 +12,6 @@ class PartieCulDeChouette
     unsigned int nbJoueurs;
     Regle        regle;
     De*          de;
-}
+};
 
 #endif

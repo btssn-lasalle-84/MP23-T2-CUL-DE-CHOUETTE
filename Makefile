@@ -1,4 +1,4 @@
-TARGET = 
+TARGET = Partie.out
 SOURCES := $(wildcard *.cpp)
 HEADERS := $(wildcard *.h)
 
@@ -7,7 +7,21 @@ CXX = g++ $(CFLAGS) -c
 LD = g++
 RM = rm -f
 
-# TODO
+
+Partie.out: Partie.o De.o Joueur.o PartieCulDeChouette.o
+	$(LD) $@ $^
+	
+Partie.o: Partie.cpp 
+	$(CXX)	$<
+
+De.o: De.cpp De.h	
+	$(CXX)	$<
+
+Joueur.o: Joueur.cpp Joueur.h
+	$(CXX)	$<
+
+PartieCulDeChouette.o: PartieCulDeChouette.cpp PartieCulDeChouette.h
+	$(CXX)	$<
 
 
 .PHONY: check cppcheck format clean cleanall
