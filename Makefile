@@ -9,7 +9,7 @@ RM = rm -f
 
 
 Partie.out: Partie.o De.o Joueur.o PartieCulDeChouette.o
-	$(LD) $@ $^
+	$(LD) -o $@ $^
 	
 Partie.o: Partie.cpp 
 	$(CXX)	$<
