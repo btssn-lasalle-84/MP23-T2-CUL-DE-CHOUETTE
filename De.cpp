@@ -4,8 +4,7 @@
 
 using namespace std;
 
-De::De(unsigned int nbFaces /*=FACES*/) :
-    nbFaces(nbFaces)
+De::De(unsigned int nbFaces /*=FACES*/) : nbFaces(nbFaces)
 {
 }
 

@@ -12,7 +12,7 @@ PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 PartieCulDeChouette::PartieCulDeChouette(unsigned int nbJoueurs) :
     nbJoueurs(nbJoueurs), regle(REGLE_DEFAUT)
 {
-    for (int i = 0; i < NB_DES; i++)
+    for(int i = 0; i < NB_DES; i++)
     {
         this->des.push_back(nullptr);
     }
@@ -20,7 +20,7 @@ PartieCulDeChouette::PartieCulDeChouette(unsigned int nbJoueurs) :
 
 PartieCulDeChouette::~PartieCulDeChouette()
 {
-    for (vector<De*>::iterator it = des.begin(); it != des.end(); ++it)
+    for(vector<De*>::iterator it = des.begin(); it != des.end(); ++it)
     {
         delete *it;
     }
@@ -29,7 +29,7 @@ PartieCulDeChouette::~PartieCulDeChouette()
 void PartieCulDeChouette::setDes()
 {
     De* de = nullptr;
-    for (int i = 0; i < NB_DES; i++)
+    for(int i = 0; i < NB_DES; i++)
     {
         de = new De;
         this->des.push_back(de);
@@ -40,7 +40,7 @@ void PartieCulDeChouette::saisirNoms()
 {
     string nom;
 
-    for (unsigned int i = 0; i < nbJoueurs; i++)
+    for(unsigned int i = 0; i < nbJoueurs; i++)
     {
         cout << "Nom Joueur : ";
         cin >> nom;
@@ -52,9 +52,10 @@ void PartieCulDeChouette::afficherPartie() const
 {
     cout << setfill('#') << setw(30) << endl;
     cout << "Nombre Joueurs : " << to_string(this->nbJoueurs) << endl;
-    for (unsigned int i = 0; i < nbJoueurs; i++)
+    for(unsigned int i = 0; i < nbJoueurs; i++)
     {
-        cout << "Score " << this->joueurs[i].getNom() << " : " << to_string(this->joueurs[i].getScore()) << endl;
+        cout << "Score " << this->joueurs[i].getNom() << " : "
+             << to_string(this->joueurs[i].getScore()) << endl;
     }
     cout << "Règle utilisée : " << this->regle << endl;
     cout << setfill('#') << setw(30) << endl;
@@ -67,7 +68,7 @@ void PartieCulDeChouette::choisirRegles(Regle regle)
 
 PartieCulDeChouette* PartieCulDeChouette::getInstance(unsigned int nbJoueurs)
 {
-    if (instance == nullptr)
+    if(instance == nullptr)
     {
         instance = new PartieCulDeChouette(nbJoueurs);
     }
@@ -82,10 +83,11 @@ void PartieCulDeChouette::detruireInstance()
 
 void PartieCulDeChouette::lancerPartie()
 {
-    int numeroRegle;
+    int   numeroRegle;
     Regle regle;
 
-    cout << "Choisir une règle Chouette (1) | Velute (2) | Cul De Chouette (3) :";
+    cout
+      << "Choisir une règle Chouette (1) | Velute (2) | Cul De Chouette (3) :";
     cin >> numeroRegle;
 
     switch(numeroRegle)

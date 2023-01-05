@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#define REGLE_DEFAUT  Chouette
-#define NB_DES  3
+#define REGLE_DEFAUT Chouette
+#define NB_DES       3
 
 class De;
 
@@ -22,23 +22,23 @@ class PartieCulDeChouette
   private:
     PartieCulDeChouette(unsigned int nbJoueurs);
     ~PartieCulDeChouette();
-    
-    bool                 estTerminee;
-    unsigned int         nbJoueurs;
-    Regle                regle;
+
+    bool                estTerminee;
+    unsigned int        nbJoueurs;
+    Regle               regle;
     std::vector<Joueur> joueurs;
-    std::vector<De*>     des;
+    std::vector<De*>    des;
 
     void setDes();
     void saisirNoms();
     void choisirRegles(Regle regle);
     void afficherPartie() const;
 
-    static PartieCulDeChouette *instance;
+    static PartieCulDeChouette* instance;
 
   public:
     static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
-    static void detruireInstance();
+    static void                 detruireInstance();
 
     void lancerPartie();
 };
