@@ -3,6 +3,9 @@
 
 #include <vector>
 
+#define REGLE_DEFAUT  Chouette
+#define NB_DES  3
+
 class De;
 
 class Joueur;
@@ -17,17 +20,27 @@ enum Regle
 class PartieCulDeChouette
 {
   private:
+    PartieCulDeChouette(unsigned int nbJoueurs);
+    ~PartieCulDeChouette();
+    
     bool                 estTerminee;
     unsigned int         nbJoueurs;
     Regle                regle;
-    std::vector<Joueur*> joueurs;
-    De*                  de;
+    std::vector<Joueur> joueurs;
+    std::vector<De*>     des;
+
+    void setDes();
+    void saisirNoms();
+    void choisirRegles(Regle regle);
+    void afficherPartie() const;
+
+    static PartieCulDeChouette *instance;
 
   public:
-    PartieCulDeChouette(unsigned int nbJoueurs, Regle& regle);
-    ~PartieCulDeChouette();
-    void setDe(De* de);
-    void setJoueurs(std::vector<Joueur*> joueurs);
+    static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
+    static void detruireInstance();
+
+    void lancerPartie();
 };
 
 #endif
