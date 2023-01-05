@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#define NB_DES       3
+#define NB_DES 3
 
 class De;
 
