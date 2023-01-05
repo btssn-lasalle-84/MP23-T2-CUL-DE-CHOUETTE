@@ -26,7 +26,6 @@ class PartieCulDeChouette
   public:
     PartieCulDeChouette(unsigned int nbJoueurs, Regle& regle);
     ~PartieCulDeChouette();
-
     void setDe(De* de);
     void setJoueurs(std::vector<Joueur*> joueurs);
 };
