@@ -10,7 +10,7 @@ class De
     unsigned int nbFaces;
 
   public:
-    De(unsigned int valeur, unsigned int nbFaces = FACES);
+    De(unsigned int nbFaces = FACES);
     ~De();
 
     void         lancer();
