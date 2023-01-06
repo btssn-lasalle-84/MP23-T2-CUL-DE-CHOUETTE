@@ -7,10 +7,6 @@ using namespace std;
 
 int main()
 {
-    unsigned int nbJoueurs;
-    cout << "Entrée nombre joueur." << '\n';
-    cin >> nbJoueurs;
-
     PartieCulDeChouette* partieCulDeChouette =
       PartieCulDeChouette::getInstance(nbJoueurs);
 
