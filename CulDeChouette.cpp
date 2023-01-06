@@ -1,21 +1,14 @@
 #include "Joueur.h"
 #include "De.h"
 #include "PartieCulDeChouette.h"
-#include <iostream>
-
-using namespace std;
-
+#include "View.h"
 int main()
 {
-    unsigned int nbJoueurs;
-    cout << "Entrée nombre joueur." << '\n';
-    cin >> nbJoueurs;
+    View                 view;
+    PartieCulDeChouette* partieCulDeChouette;
 
-    PartieCulDeChouette* partieCulDeChouette =
-      PartieCulDeChouette::getInstance(nbJoueurs);
-
-    partieCulDeChouette->lancerPartie();
-    partieCulDeChouette->lancerDe();
+    partieCulDeChouette->lancerPartie(view);
+    // partieCulDeChouette->lancerDe();
 
     return 0;
 }

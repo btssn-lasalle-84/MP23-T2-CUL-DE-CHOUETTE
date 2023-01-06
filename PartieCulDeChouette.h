@@ -9,6 +9,8 @@ class De;
 
 class Joueur;
 
+class View;
+
 class PartieCulDeChouette
 {
   private:
@@ -20,17 +22,14 @@ class PartieCulDeChouette
     std::vector<Joueur> joueurs;
     std::vector<De*>    des;
 
-    void saisirNoms();
-    void afficherPartie() const;
-
     static PartieCulDeChouette* instance;
 
   public:
     static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
     static void                 detruireInstance();
 
-    void lancerPartie();
-    void lancerDe();
+    void lancerPartie(View& view);
+    void lancerDes();
 };
 
 #endif
