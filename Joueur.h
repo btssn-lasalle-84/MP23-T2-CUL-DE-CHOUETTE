@@ -12,10 +12,10 @@ class Joueur
     unsigned int score;
 
   public:
-    Joueur(std::string& nom);
+    Joueur(const std::string& nom);
     std::string  getNom() const;
     unsigned int getScore() const;
-    void         setNom(std::string& nom);
     void         setScore(unsigned int score);
 };
+
 #endif // JOUEUR_H

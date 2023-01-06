@@ -16,4 +16,5 @@ class De
     void         lancer();
     unsigned int getValeur() const;
 };
+
 #endif // DE_H
