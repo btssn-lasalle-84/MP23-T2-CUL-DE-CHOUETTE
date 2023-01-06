@@ -8,7 +8,7 @@ LD = g++
 RM = rm -f
 
 
-CulDeChouette.out: CulDeChouette.o De.o Joueur.o PartieCulDeChouette.o
+CulDeChouette.out: CulDeChouette.o De.o Joueur.o PartieCulDeChouette.o View.o
 	$(LD) -o $@ $^
 	
 CulDeChouette.o: CulDeChouette.cpp 
@@ -22,7 +22,8 @@ Joueur.o: Joueur.cpp Joueur.h
 
 PartieCulDeChouette.o: PartieCulDeChouette.cpp PartieCulDeChouette.h
 	$(CXX)	$<
-
+View.o: View.cpp View.h
+	$(CXX)	$<
 
 .PHONY: check cppcheck format clean cleanall
 

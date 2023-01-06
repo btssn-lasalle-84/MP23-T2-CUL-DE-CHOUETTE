@@ -10,7 +10,6 @@ class Joueur
   private:
     const std::string nom;
     unsigned int      score;
-    bool              aGagne;
 
   public:
     Joueur(const std::string& nom);

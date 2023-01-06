@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Joueur::Joueur(const string& nom) : nom(nom), score(SCORE_DEBUT), aGagne(false)
+Joueur::Joueur(const string& nom) : nom(nom), score(SCORE_DEBUT)
 {
 }
 

@@ -1,6 +1,7 @@
 #include "PartieCulDeChouette.h"
 #include "Joueur.h"
 #include "De.h"
+#include "View.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -28,30 +29,6 @@ PartieCulDeChouette::~PartieCulDeChouette()
     }
 }
 
-void PartieCulDeChouette::saisirNoms()
-{
-    string nom;
-
-    for(unsigned int i = 0; i < nbJoueurs; i++)
-    {
-        cout << "Nom Joueur : " << '\n';
-        cin >> nom;
-        joueurs.push_back(Joueur(nom));
-    }
-}
-
-void PartieCulDeChouette::afficherPartie() const
-{
-    cout << setfill('#') << setw(30) << endl;
-    cout << "Nombre Joueurs : " << to_string(this->nbJoueurs) << endl;
-    for(unsigned int i = 0; i < nbJoueurs; i++)
-    {
-        cout << "Score " << this->joueurs[i].getNom() << " : "
-             << to_string(this->joueurs[i].getScore()) << endl;
-    }
-    cout << setfill('#') << setw(30) << endl;
-}
-
 PartieCulDeChouette* PartieCulDeChouette::getInstance(unsigned int nbJoueurs)
 {
     if(instance == nullptr)
@@ -67,13 +44,13 @@ void PartieCulDeChouette::detruireInstance()
     instance->~PartieCulDeChouette();
 }
 
-void PartieCulDeChouette::lancerPartie()
+void PartieCulDeChouette::lancerPartie(View& view)
 {
-    instance->saisirNoms();
-    instance->afficherPartie();
+    view.saisirNbJoueurs();
+    view.saisirNoms();
 }
 
-void PartieCulDeChouette::lancerDe()
+void PartieCulDeChouette::lancerDes()
 {
     for(int i = 0; i < NB_DES; i++)
     {
