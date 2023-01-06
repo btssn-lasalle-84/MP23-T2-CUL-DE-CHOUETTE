@@ -11,7 +11,8 @@ int main()
     cout << "Entrée nombre joueur." << '\n';
     cin >> nbJoueurs;
 
-    PartieCulDeChouette* partieCulDeChouette = PartieCulDeChouette::getInstance(nbJoueurs);    
+    PartieCulDeChouette* partieCulDeChouette =
+      PartieCulDeChouette::getInstance(nbJoueurs);
 
     partieCulDeChouette->lancerPartie();
     partieCulDeChouette->lancerDe();
