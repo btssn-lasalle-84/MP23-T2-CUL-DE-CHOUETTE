@@ -29,8 +29,8 @@ class PartieCulDeChouette
     static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
     static void                 detruireInstance();
 
-    void  lancerPartie();
-    void  lancerDe(); 
+    void lancerPartie();
+    void lancerDe();
 };
 
 #endif

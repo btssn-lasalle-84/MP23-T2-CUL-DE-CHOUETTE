@@ -10,15 +10,8 @@ using namespace std;
 PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
 PartieCulDeChouette::PartieCulDeChouette(unsigned int nbJoueurs) :
-    nbJoueurs(nbJoueurs), des(NB_DES)
+    nbJoueurs(nbJoueurs), des(NB_DES, new De)
 {
-    De* de;
-
-    for(int i = 0; i < NB_DES; i++)
-    {
-        de = new De;
-        this->des.push_back(de);
-    }
 }
 
 PartieCulDeChouette::~PartieCulDeChouette()
@@ -76,7 +69,7 @@ void PartieCulDeChouette::lancerPartie()
 
 void PartieCulDeChouette::lancerDe()
 {
-    for (int i = 0; i < NB_DES; i++)
+    for(int i = 0; i < NB_DES; i++)
     {
         this->des[i]->lancer();
     }
