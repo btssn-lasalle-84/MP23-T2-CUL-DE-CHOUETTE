@@ -17,4 +17,5 @@ class Joueur
     unsigned int getScore() const;
     void         setScore(unsigned int score);
 };
+
 #endif // JOUEUR_H
