@@ -8,11 +8,11 @@
 class Joueur
 {
   private:
-    std::string  nom;
-    unsigned int score;
+    const std::string nom;
+    unsigned int      score;
 
   public:
-    Joueur(std::string& nom);
+    Joueur(const std::string& nom);
     std::string  getNom() const;
     unsigned int getScore() const;
     void         setNom(std::string& nom);
