@@ -17,10 +17,11 @@ class PartieCulDeChouette
     PartieCulDeChouette();
     ~PartieCulDeChouette();
 
-    bool                estTerminee;
-    unsigned int        nbJoueurs;
-    std::vector<Joueur> joueurs;
-    std::vector<De*>    des;
+    bool                 estTerminee;
+    unsigned int         numeroTour;
+    unsigned int         nbJoueurs;
+    std::vector<Joueur*> joueurs;
+    std::vector<De*>     des;
 
     static PartieCulDeChouette* instance;
 
@@ -31,6 +32,7 @@ class PartieCulDeChouette
     void setNbJoueurs(unsigned int nbJoueurs);
     void lancerPartie(View& view);
     void lancerDes();
+    void implementationScore();
 };
 
 #endif

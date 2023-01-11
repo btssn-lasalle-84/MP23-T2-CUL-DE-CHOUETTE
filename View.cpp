@@ -39,7 +39,6 @@ void View::afficherJoueurs(vector<Joueur>& joueurs) const
     for(vector<Joueur>::iterator it = joueurs.begin(); it != joueurs.end();
         ++it)
     {
-        cout << it->getNom() << " : " << to_string(it->getScore()) << " pts "
-             << endl;
+        cout << it->getNom() << " : " << to_string(it->getScore()) << " pts " << endl;
     }
 }
