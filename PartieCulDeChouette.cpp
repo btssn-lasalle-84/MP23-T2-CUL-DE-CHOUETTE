@@ -81,7 +81,7 @@ void PartieCulDeChouette::implementationScore()
        (des[0]->getValeur() == des[2]->getValeur())) // La Chouette
     {
         score = des[i]->getValeur() * des[i++]->getValeur();
-        joueurs[numeroTour]->setScore(score);
+        joueurs[numeroTour].setScore(score);
     }
 
     else if((des[0]->getValeur() + des[1]->getValeur()) ==
@@ -92,27 +92,27 @@ void PartieCulDeChouette::implementationScore()
             case 1:
                 des[3]->getValeur() == 3;
                 score = 18;
-                joueurs[numeroTour]->setScore(score);
+                joueurs[numeroTour].setScore(score);
                 break;
             case 2:
                 des[3]->getValeur() == 4;
                 score = 32;
-                joueurs[numeroTour]->setScore(score);
+                joueurs[numeroTour].setScore(score);
                 break;
             case 3:
                 des[3]->getValeur() == 5;
                 score = 50;
-                joueurs[numeroTour]->setScore(score);
+                joueurs[numeroTour].setScore(score);
                 break;
             case 4:
                 des[3]->getValeur() == 6;
                 score = 72;
-                joueurs[numeroTour]->setScore(score);
+                joueurs[numeroTour].setScore(score);
                 break;
             default:
                 des[3]->getValeur() < 2;
                 score = des[3]->getValeur();
-                joueurs[numeroTour]->setScore(score);
+                joueurs[numeroTour].setScore(score);
                 break;
         }
     }
@@ -121,11 +121,11 @@ void PartieCulDeChouette::implementationScore()
              des[2]->getValeur())) // Le Cul de Chouette
     {
         score = 40 + 10 * i;
-        joueurs[numeroTour]->setScore(score);
+        joueurs[numeroTour].setScore(score);
     }
     else
     {
         score = des[0]->getValeur() + des[1]->getValeur() + des[2]->getValeur();
-        joueurs[numeroTour]->setScore(score);
+        joueurs[numeroTour].setScore(score);
     }
 };
