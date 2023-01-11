@@ -34,11 +34,12 @@ void View::saisirNoms() const
     cout << setfill('#') << setw(30) << '\n';
 }
 
-void View::afficherScore() const
+void View::afficherJoueur() const
 {
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {
-        cout << "Score " << this->joueurs[i].getNom() << " : "
-             << to_string(this->joueurs[i].getScore()) << endl;
+        cout << "A vous de jouer : " << this->joueurs[i].getNom()
+             << " : Score actuel -> " << to_string(this->joueurs[i].getScore())
+             << endl;
     }
 }
