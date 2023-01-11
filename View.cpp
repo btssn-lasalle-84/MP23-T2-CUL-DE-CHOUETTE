@@ -38,7 +38,8 @@ void View::afficherJoueur() const
 {
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {
-        cout << "A vous de jouer : " << this->joueurs[i].getNom() << " : Score actuel -> "
-             << to_string(this->joueurs[i].getScore()) << endl;
+        cout << "A vous de jouer : " << this->joueurs[i].getNom()
+             << " : Score actuel -> " << to_string(this->joueurs[i].getScore())
+             << endl;
     }
 }
