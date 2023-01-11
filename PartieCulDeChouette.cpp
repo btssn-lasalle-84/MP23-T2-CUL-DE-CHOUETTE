@@ -10,8 +10,8 @@ using namespace std;
 
 PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
-PartieCulDeChouette::PartieCulDeChouette(unsigned int nbJoueurs) :
-    nbJoueurs(nbJoueurs)
+PartieCulDeChouette::PartieCulDeChouette() :
+    nbJoueurs(0)
 {
     De* de;
     for(int i = 0; i < NB_DES; i++)
@@ -29,11 +29,11 @@ PartieCulDeChouette::~PartieCulDeChouette()
     }
 }
 
-PartieCulDeChouette* PartieCulDeChouette::getInstance(unsigned int nbJoueurs)
+PartieCulDeChouette* PartieCulDeChouette::getInstance()
 {
     if(instance == nullptr)
     {
-        instance = new PartieCulDeChouette(nbJoueurs);
+        instance = new PartieCulDeChouette();
     }
 
     return instance;
@@ -44,10 +44,23 @@ void PartieCulDeChouette::detruireInstance()
     instance->~PartieCulDeChouette();
 }
 
-void PartieCulDeChouette::lancerPartie(View& view)
+void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
 {
-    view.saisirNbJoueurs();
-    view.saisirNoms();
+    this->nbJoueurs = nbJoueurs;
+}
+
+void PartieCulDeChouette::lancerPartie(View &view)
+{
+    string nom;
+    unsigned int nbJoueurs = view.saisirNbJoueurs();
+
+    instance->setNbJoueurs(nbJoueurs);
+
+    for (unsigned int i = 0; i < nbJoueurs; i++)
+    {
+        nom = view.saisirNom(i);
+        this->joueurs.push_back(Joueur(nom));
+    }
 }
 
 void PartieCulDeChouette::lancerDes()

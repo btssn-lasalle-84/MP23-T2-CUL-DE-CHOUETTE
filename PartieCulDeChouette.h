@@ -14,7 +14,7 @@ class View;
 class PartieCulDeChouette
 {
   private:
-    PartieCulDeChouette(unsigned int nbJoueurs);
+    PartieCulDeChouette();
     ~PartieCulDeChouette();
 
     bool                estTerminee;
@@ -25,10 +25,11 @@ class PartieCulDeChouette
     static PartieCulDeChouette* instance;
 
   public:
-    static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
+    static PartieCulDeChouette* getInstance();
     static void                 detruireInstance();
 
-    void lancerPartie(View& view);
+    void setNbJoueurs(unsigned int nbJoueurs);
+    void lancerPartie(View &view);
     void lancerDes();
 };
 

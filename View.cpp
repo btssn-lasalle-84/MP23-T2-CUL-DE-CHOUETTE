@@ -14,31 +14,30 @@ View::~View()
 {
 }
 
-void View::saisirNbJoueurs()
+unsigned int View::saisirNbJoueurs()
 {
+    unsigned int nbJoueurs;
+
     cout << "Entrée nombre joueur." << '\n';
     cin >> nbJoueurs;
+
+    return nbJoueurs;
 }
 
-void View::saisirNoms() const
+string View::saisirNom(unsigned int numeroJoueur) const
 {
     string nom;
 
-    for(unsigned int i = 0; i < nbJoueurs; i++)
-    {
-        cout << "Nom Joueur : " << '\n';
-        cin >> nom;
-    }
-    cout << setfill('#') << setw(30) << '\n';
-    cout << "Nombre Joueurs : " << to_string(this->nbJoueurs) << endl;
-    cout << setfill('#') << setw(30) << '\n';
+    cout << "Nom du Joueur " << to_string(numeroJoueur) << " : " << endl;
+    cin >> nom;
+
+    return nom;
 }
 
-void View::afficherScore() const
+void View::afficherJoueurs(vector<Joueur>& joueurs) const
 {
-    for(unsigned int i = 0; i < nbJoueurs; i++)
+    for(vector<Joueur>::iterator it = joueurs.begin(); it != joueurs.end(); ++it)
     {
-        cout << "Score " << this->joueurs[i].getNom() << " : "
-             << to_string(this->joueurs[i].getScore()) << endl;
+        cout << it->getNom() << " : " << to_string(it->getScore()) << " pts " << endl;
     }
 }
