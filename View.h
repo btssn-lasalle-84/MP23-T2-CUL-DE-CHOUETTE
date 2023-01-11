@@ -6,20 +6,14 @@
 
 class Joueur;
 
-class PartieCulDeChouette;
-
 class View
 {
-  private:
-    unsigned int        nbJoueurs;
-    std::vector<Joueur> joueurs;
-
   public:
     View();
     ~View();
-    void saisirNbJoueurs();
-    void saisirNoms() const;
-    void afficherJoueur() const;
+    unsigned int saisirNbJoueurs();
+    std::string  saisirNom(unsigned int numeroJoueur) const;
+    void         afficherJoueurs(std::vector<Joueur>& joueurs) const;
 };
 
 #endif // VIEW_H

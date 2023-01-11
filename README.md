@@ -8,8 +8,7 @@ Programme qui a pour but de reproduire le jeu du 'Cul de chouette' de la série 
 
 1. La Chouette.
 2. La Velute.
-3. La Chouette-Velute.
-4. Le Cul De Chouette.
+3. Le Cul De Chouette.
 
 ## Jouer une Partie 
 

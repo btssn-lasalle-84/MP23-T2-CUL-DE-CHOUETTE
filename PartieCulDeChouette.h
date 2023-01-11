@@ -14,21 +14,22 @@ class View;
 class PartieCulDeChouette
 {
   private:
-    PartieCulDeChouette(unsigned int nbJoueurs);
+    PartieCulDeChouette();
     ~PartieCulDeChouette();
 
-    bool                 estTerminee;
-    unsigned int         numeroTour;
-    unsigned int         nbJoueurs;
-    std::vector<Joueur*> joueurs;
-    std::vector<De*>     des;
+    bool                estTerminee;
+    unsigned int        numeroTour;
+    unsigned int        nbJoueurs;
+    std::vector<Joueur> joueurs;
+    std::vector<De*>    des;
 
     static PartieCulDeChouette* instance;
 
   public:
-    static PartieCulDeChouette* getInstance(unsigned int nbJoueurs);
+    static PartieCulDeChouette* getInstance();
     static void                 detruireInstance();
 
+    void setNbJoueurs(unsigned int nbJoueurs);
     void lancerPartie(View& view);
     void lancerDes();
     void implementationScore();
