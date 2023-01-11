@@ -12,8 +12,8 @@ class View
     View();
     ~View();
     unsigned int saisirNbJoueurs();
-    std::string saisirNom(unsigned int numeroJoueur) const;
-    void afficherJoueurs(std::vector<Joueur>& joueurs) const;
+    std::string  saisirNom(unsigned int numeroJoueur) const;
+    void         afficherJoueurs(std::vector<Joueur>& joueurs) const;
 };
 
 #endif // VIEW_H

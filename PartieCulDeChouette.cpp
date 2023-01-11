@@ -10,8 +10,7 @@ using namespace std;
 
 PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
-PartieCulDeChouette::PartieCulDeChouette() :
-    nbJoueurs(0)
+PartieCulDeChouette::PartieCulDeChouette() : nbJoueurs(0)
 {
     De* de;
     for(int i = 0; i < NB_DES; i++)
@@ -49,14 +48,14 @@ void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
     this->nbJoueurs = nbJoueurs;
 }
 
-void PartieCulDeChouette::lancerPartie(View &view)
+void PartieCulDeChouette::lancerPartie(View& view)
 {
-    string nom;
+    string       nom;
     unsigned int nbJoueurs = view.saisirNbJoueurs();
 
     instance->setNbJoueurs(nbJoueurs);
 
-    for (unsigned int i = 0; i < nbJoueurs; i++)
+    for(unsigned int i = 0; i < nbJoueurs; i++)
     {
         nom = view.saisirNom(i);
         this->joueurs.push_back(Joueur(nom));

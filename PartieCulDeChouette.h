@@ -29,7 +29,7 @@ class PartieCulDeChouette
     static void                 detruireInstance();
 
     void setNbJoueurs(unsigned int nbJoueurs);
-    void lancerPartie(View &view);
+    void lancerPartie(View& view);
     void lancerDes();
 };
 

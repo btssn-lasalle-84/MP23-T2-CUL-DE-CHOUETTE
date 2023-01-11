@@ -3,7 +3,7 @@
 #include "PartieCulDeChouette.h"
 #include "View.h"
 
-#define SCORE_GAGNANT   500
+#define SCORE_GAGNANT 500
 
 int main()
 {
