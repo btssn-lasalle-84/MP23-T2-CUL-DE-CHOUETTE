@@ -19,7 +19,7 @@ class View
     ~View();
     void saisirNbJoueurs();
     void saisirNoms() const;
-    void afficherScore() const;
+    void afficherJoueur() const;
 };
 
 #endif // VIEW_H
