@@ -1,7 +1,6 @@
 #include "View.h"
 #include "Joueur.h"
 #include "PartieCulDeChouette.h"
-#include <string>
 #include <iostream>
 #include <iomanip>
 

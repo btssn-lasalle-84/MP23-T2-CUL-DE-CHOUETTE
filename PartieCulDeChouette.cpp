@@ -37,6 +37,35 @@ PartieCulDeChouette* PartieCulDeChouette::getInstance()
     return instance;
 }
 
+unsigned int PartieCulDeChouette::tourActuel() const
+{
+    return this->numeroTour;
+}
+
+unsigned int PartieCulDeChouette::prochainTour()
+{
+    if(numeroTour == (nbJoueurs - 1))
+    {
+        numeroTour = 0;
+    }
+    else
+    {
+        numeroTour += 1;
+    }
+
+    return this->numeroTour;
+}
+
+unsigned int PartieCulDeChouette::scoreJoueurActuel() const
+{
+    return this->joueurs[numeroTour].getScore();
+}
+
+vector<Joueur> PartieCulDeChouette::getJoueurs() const
+{
+    return this->joueurs;
+}
+
 void PartieCulDeChouette::detruireInstance()
 {
     instance->~PartieCulDeChouette();
@@ -67,35 +96,6 @@ void PartieCulDeChouette::lancerDes()
     {
         this->des[i]->lancer();
     }
-}
-
-unsigned int PartieCulDeChouette::tourActuel() const
-{
-    return this->numeroTour;
-}
-
-unsigned int PartieCulDeChouette::prochainTour()
-{
-    if(numeroTour == (nbJoueurs - 1))
-    {
-        numeroTour = 0;
-    }
-    else
-    {
-        numeroTour += 1;
-    }
-
-    return this->numeroTour;
-}
-
-unsigned int PartieCulDeChouette::scoreJoueurActuel() const
-{
-    return this->joueurs[numeroTour].getScore();
-}
-
-vector<Joueur> PartieCulDeChouette::getJoueurs() const
-{
-    return this->joueurs;
 }
 
 void PartieCulDeChouette::regleUtilisee()
