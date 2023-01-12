@@ -33,8 +33,9 @@ class PartieCulDeChouette
     void                setNbJoueurs(unsigned int nbJoueurs);
     void                lancerPartie(View& view);
     void                lancerDes();
-    unsigned int        joueurActuel();
-    unsigned int        scoreJoueurActuel();
+    unsigned int        tourActuel() const;
+    unsigned int        prochainTour();
+    unsigned int        scoreJoueurActuel() const;
     std::vector<Joueur> getJoueurs() const;
     void                regleUtilisee();
 };

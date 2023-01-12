@@ -44,3 +44,9 @@ void View::afficherJoueurs(vector<Joueur> joueurs) const
              << endl;
     }
 }
+
+void View::infoTour(unsigned int tour, vector<Joueur> joueurs) const
+{
+    cout << "Score de " << joueurs[tour].getNom() << " : "
+         << to_string(joueurs[tour].getScore()) << endl;
+}

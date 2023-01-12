@@ -12,10 +12,9 @@ PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
 PartieCulDeChouette::PartieCulDeChouette() : nbJoueurs(0), numeroTour(0)
 {
-    De* de;
     for(int i = 0; i < NB_DES; i++)
     {
-        de = new De;
+        De* de = new De;
         this->des.push_back(de);
     }
 }
@@ -70,7 +69,12 @@ void PartieCulDeChouette::lancerDes()
     }
 }
 
-unsigned int PartieCulDeChouette::joueurActuel()
+unsigned int PartieCulDeChouette::tourActuel() const
+{
+    return this->numeroTour;
+}
+
+unsigned int PartieCulDeChouette::prochainTour()
 {
     if(numeroTour == (nbJoueurs - 1))
     {
@@ -84,7 +88,7 @@ unsigned int PartieCulDeChouette::joueurActuel()
     return this->numeroTour;
 }
 
-unsigned int PartieCulDeChouette::scoreJoueurActuel()
+unsigned int PartieCulDeChouette::scoreJoueurActuel() const
 {
     return this->joueurs[numeroTour].getScore();
 }
@@ -96,7 +100,7 @@ vector<Joueur> PartieCulDeChouette::getJoueurs() const
 
 void PartieCulDeChouette::regleUtilisee()
 {
-    unsigned int score;
+    unsigned int score = 0;
 
     sort(des.begin(), des.end());
 
@@ -122,27 +126,7 @@ void PartieCulDeChouette::regleUtilisee()
     else if((des[0]->getValeur() == des[1]->getValeur()) &&
             (des[1]->getValeur() == des[2]->getValeur()))
     {
-        switch(des[0]->getValeur())
-        {
-            case 1:
-                score = 50;
-                break;
-            case 2:
-                score = 60;
-                break;
-            case 3:
-                score = 70;
-                break;
-            case 4:
-                score = 80;
-                break;
-            case 5:
-                score = 90;
-                break;
-            case 6:
-                score = 100;
-                break;
-        }
+        score = (des[0]->getValeur() * 10) + 40;
     }
     else
     {
