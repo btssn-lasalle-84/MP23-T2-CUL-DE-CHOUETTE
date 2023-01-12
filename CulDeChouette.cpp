@@ -13,16 +13,17 @@ int main()
 
     partieCulDeChouette->lancerPartie(view);
     view.afficherJoueurs(partieCulDeChouette->getJoueurs());
-    /*while (true)
+    while (true)
     {
-        partieCulDeChouette->joueurActuel();
+        view.infoTour(partieCulDeChouette->tourActuel(), partieCulDeChouette->getJoueurs());
         partieCulDeChouette->lancerDes();
         partieCulDeChouette->regleUtilisee();
         if (partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
         {
             break;
         }
-    }*/
+        partieCulDeChouette->prochainTour();
+    }
 
     return 0;
 }

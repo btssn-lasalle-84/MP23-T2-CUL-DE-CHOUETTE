@@ -18,5 +18,5 @@ unsigned int Joueur::getScore() const
 
 void Joueur::setScore(unsigned int score)
 {
-    this->score = score;
+    this->score += score;
 }

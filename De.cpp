@@ -6,6 +6,7 @@ using namespace std;
 
 De::De(unsigned int nbFaces /*=FACES*/) : nbFaces(nbFaces)
 {
+    srand((unsigned int)time(nullptr));
 }
 
 De::~De()
@@ -14,7 +15,6 @@ De::~De()
 
 void De::lancer()
 {
-    srand(time(nullptr));
     this->valeur = rand() % FACES + 1;
 }
 

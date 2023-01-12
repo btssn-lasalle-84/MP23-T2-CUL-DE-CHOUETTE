@@ -16,6 +16,7 @@ class View
     unsigned int saisirNbJoueurs();
     std::string  saisirNom(unsigned int numeroJoueur) const;
     void         afficherJoueurs(std::vector<Joueur> joueurs) const;
+    void         infoTour(unsigned int tour, std::vector<Joueur> joueurs) const;
 };
 
 #endif // VIEW_H
