@@ -3,19 +3,21 @@
 #include "PartieCulDeChouette.h"
 #include "View.h"
 
-#define SCORE_GAGNANT 500
+#define SCORE_GAGNANT 343
 
 int main()
 {
     View                 view;
-    PartieCulDeChouette* partieCulDeChouette;
+    PartieCulDeChouette* partieCulDeChouette =
+      PartieCulDeChouette::getInstance();
 
     partieCulDeChouette->lancerPartie(view);
+    view.afficherJoueurs(partieCulDeChouette->getJoueurs());
     /*while (true)
     {
-        view->afficherJoueurs();
+        partieCulDeChouette->joueurActuel();
         partieCulDeChouette->lancerDes();
-        partieCulDeChouette->combinaisonUtilisee();
+        partieCulDeChouette->regleUtilisee();
         if (partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
         {
             break;

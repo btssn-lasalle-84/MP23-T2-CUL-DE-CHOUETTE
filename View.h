@@ -6,6 +6,8 @@
 
 class Joueur;
 
+class PartieCulDeChouette;
+
 class View
 {
   public:
@@ -13,7 +15,7 @@ class View
     ~View();
     unsigned int saisirNbJoueurs();
     std::string  saisirNom(unsigned int numeroJoueur) const;
-    void         afficherJoueurs(std::vector<Joueur>& joueurs) const;
+    void         afficherJoueurs(std::vector<Joueur> joueurs) const;
 };
 
 #endif // VIEW_H

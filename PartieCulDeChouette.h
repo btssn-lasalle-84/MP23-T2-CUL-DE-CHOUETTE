@@ -4,6 +4,7 @@
 #include <vector>
 
 #define NB_DES 3
+#define DOUBLE 2
 
 class De;
 
@@ -29,10 +30,13 @@ class PartieCulDeChouette
     static PartieCulDeChouette* getInstance();
     static void                 detruireInstance();
 
-    void setNbJoueurs(unsigned int nbJoueurs);
-    void lancerPartie(View& view);
-    void lancerDes();
-    void implementationScore();
+    void                setNbJoueurs(unsigned int nbJoueurs);
+    void                lancerPartie(View& view);
+    void                lancerDes();
+    unsigned int        joueurActuel();
+    unsigned int        scoreJoueurActuel();
+    std::vector<Joueur> getJoueurs() const;
+    void                regleUtilisee();
 };
 
 #endif

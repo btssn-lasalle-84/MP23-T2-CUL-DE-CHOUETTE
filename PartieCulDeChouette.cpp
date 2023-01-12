@@ -2,16 +2,15 @@
 #include "Joueur.h"
 #include "De.h"
 #include "View.h"
-#include <string>
-#include <iostream>
-#include <iomanip>
+#include <algorithm>
+#include <cmath>
 #include <vector>
 
 using namespace std;
 
 PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
-PartieCulDeChouette::PartieCulDeChouette() : nbJoueurs(0)
+PartieCulDeChouette::PartieCulDeChouette() : nbJoueurs(0), numeroTour(0)
 {
     De* de;
     for(int i = 0; i < NB_DES; i++)
@@ -71,61 +70,87 @@ void PartieCulDeChouette::lancerDes()
     }
 }
 
-void PartieCulDeChouette::implementationScore()
+unsigned int PartieCulDeChouette::joueurActuel()
 {
-    unsigned int i;
-    unsigned int score;
-
-    if((des[0]->getValeur() == des[1]->getValeur()) ||
-       (des[1]->getValeur() == des[2]->getValeur()) ||
-       (des[0]->getValeur() == des[2]->getValeur())) // La Chouette
+    if(numeroTour == (nbJoueurs - 1))
     {
-        score = des[i]->getValeur() * des[i++]->getValeur();
-        joueurs[numeroTour].setScore(score);
-    }
-
-    else if((des[0]->getValeur() + des[1]->getValeur()) ==
-            des[i + 2]->getValeur()) //  La Velute
-    {
-        switch(des[3]->getValeur() > 2)
-        {
-            case 1:
-                des[3]->getValeur() == 3;
-                score = 18;
-                joueurs[numeroTour].setScore(score);
-                break;
-            case 2:
-                des[3]->getValeur() == 4;
-                score = 32;
-                joueurs[numeroTour].setScore(score);
-                break;
-            case 3:
-                des[3]->getValeur() == 5;
-                score = 50;
-                joueurs[numeroTour].setScore(score);
-                break;
-            case 4:
-                des[3]->getValeur() == 6;
-                score = 72;
-                joueurs[numeroTour].setScore(score);
-                break;
-            default:
-                des[3]->getValeur() < 2;
-                score = des[3]->getValeur();
-                joueurs[numeroTour].setScore(score);
-                break;
-        }
-    }
-
-    else if((des[0]->getValeur() == des[1]->getValeur() &&
-             des[2]->getValeur())) // Le Cul de Chouette
-    {
-        score = 40 + 10 * i;
-        joueurs[numeroTour].setScore(score);
+        numeroTour = 0;
     }
     else
     {
-        score = des[0]->getValeur() + des[1]->getValeur() + des[2]->getValeur();
-        joueurs[numeroTour].setScore(score);
+        numeroTour += 1;
     }
+
+    return this->numeroTour;
+}
+
+unsigned int PartieCulDeChouette::scoreJoueurActuel()
+{
+    return this->joueurs[numeroTour].getScore();
+}
+
+vector<Joueur> PartieCulDeChouette::getJoueurs() const
+{
+    return this->joueurs;
+}
+
+void PartieCulDeChouette::regleUtilisee()
+{
+    unsigned int score;
+
+    sort(des.begin(), des.end());
+
+    if((des[0]->getValeur() == des[1]->getValeur()) ||
+       (des[1]->getValeur() == des[2]->getValeur()))
+    {
+        if(des[0]->getValeur() == des[1]->getValeur())
+        {
+            score = pow(des[0]->getValeur(), 2);
+        }
+        else
+        {
+            score = pow(des[2]->getValeur(), 2);
+        }
+    }
+
+    else if(des[0]->getValeur() + des[1]->getValeur() == des[2]->getValeur())
+    {
+        unsigned int velute = des[0]->getValeur() + des[1]->getValeur();
+        score               = DOUBLE * pow(velute, 2);
+    }
+
+    else if((des[0]->getValeur() == des[1]->getValeur()) &&
+            (des[1]->getValeur() == des[2]->getValeur()))
+    {
+        switch(des[0]->getValeur())
+        {
+            case 1:
+                score = 50;
+                break;
+            case 2:
+                score = 60;
+                break;
+            case 3:
+                score = 70;
+                break;
+            case 4:
+                score = 80;
+                break;
+            case 5:
+                score = 90;
+                break;
+            case 6:
+                score = 100;
+                break;
+        }
+    }
+    else
+    {
+        for(unsigned int i = 0; i < NB_DES; i++)
+        {
+            score += des[i]->getValeur();
+        }
+    }
+
+    joueurs[numeroTour].setScore(score);
 };
