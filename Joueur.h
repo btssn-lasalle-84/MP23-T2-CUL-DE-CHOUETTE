@@ -13,8 +13,10 @@ class Joueur
 
   public:
     Joueur(const std::string& nom);
+
     std::string  getNom() const;
     unsigned int getScore() const;
+    
     void         setScore(unsigned int score);
 };
 
