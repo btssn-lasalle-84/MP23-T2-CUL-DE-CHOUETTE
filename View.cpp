@@ -1,5 +1,6 @@
 #include "View.h"
 #include "Joueur.h"
+#include "PartieCulDeChouette.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -34,7 +35,7 @@ string View::saisirNom(unsigned int numeroJoueur) const
     return nom;
 }
 
-void View::afficherJoueurs(vector<Joueur>& joueurs) const
+void View::afficherJoueurs(vector<Joueur> joueurs) const
 {
     for(vector<Joueur>::iterator it = joueurs.begin(); it != joueurs.end();
         ++it)
