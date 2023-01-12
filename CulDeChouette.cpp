@@ -13,12 +13,13 @@ int main()
 
     partieCulDeChouette->lancerPartie(view);
     view.afficherJoueurs(partieCulDeChouette->getJoueurs());
-    while (true)
+    while(true)
     {
-        view.infoTour(partieCulDeChouette->tourActuel(), partieCulDeChouette->getJoueurs());
+        view.infoTour(partieCulDeChouette->tourActuel(),
+                      partieCulDeChouette->getJoueurs());
         partieCulDeChouette->lancerDes();
         partieCulDeChouette->regleUtilisee();
-        if (partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
+        if(partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
         {
             break;
         }
