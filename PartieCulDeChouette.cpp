@@ -1,7 +1,7 @@
 #include "PartieCulDeChouette.h"
 #include "Joueur.h"
 #include "De.h"
-#include "View.h"
+#include "VisuelPartie.h"
 #include <algorithm>
 #include <cmath>
 #include <vector>
@@ -10,7 +10,7 @@ using namespace std;
 
 PartieCulDeChouette* PartieCulDeChouette::instance = nullptr;
 
-PartieCulDeChouette::PartieCulDeChouette() : nbJoueurs(0), numeroTour(0)
+PartieCulDeChouette::PartieCulDeChouette() : numeroTour(0), nbJoueurs(0)
 {
     for(int i = 0; i < NB_DES; i++)
     {
@@ -76,16 +76,16 @@ void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
     this->nbJoueurs = nbJoueurs;
 }
 
-void PartieCulDeChouette::lancerPartie(View& view)
+void PartieCulDeChouette::lancerPartie(VisuelPartie& visuelpartie)
 {
     string       nom;
-    unsigned int nbJoueurs = view.saisirNbJoueurs();
+    unsigned int nbJoueurs = visuelpartie.saisirNbJoueurs();
 
     instance->setNbJoueurs(nbJoueurs);
 
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {
-        nom = view.saisirNom(i);
+        nom = visuelpartie.saisirNom(i);
         this->joueurs.push_back(Joueur(nom));
     }
 }

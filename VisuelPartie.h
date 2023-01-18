@@ -1,5 +1,5 @@
-#ifndef VIEW_H
-#define VIEW_H
+#ifndef VisuelPartie_H
+#define VisuelPartie_H
 
 #include <vector>
 #include <string>
@@ -8,17 +8,18 @@ class Joueur;
 
 class PartieCulDeChouette;
 
-class View
+class VisuelPartie
 {
   public:
-    View();
-    ~View();
+    VisuelPartie();
+    ~VisuelPartie();
 
     unsigned int saisirNbJoueurs();
     std::string  saisirNom(unsigned int numeroJoueur) const;
 
+    void afficherInformationLogiciel() const;
     void afficherJoueurs(std::vector<Joueur> joueurs) const;
-    void infoTour(unsigned int tour, std::vector<Joueur> joueurs) const;
+    void informerTour(unsigned int tour, std::vector<Joueur> joueurs) const;
 };
 
-#endif // VIEW_H
+#endif // VisuelPartie_H
