@@ -10,19 +10,19 @@ class De;
 
 class Joueur;
 
-class View;
+class VisuelPartie;
 
 class PartieCulDeChouette
 {
   private:
-    PartieCulDeChouette();
-    ~PartieCulDeChouette();
-
     bool                estTerminee;
     unsigned int        numeroTour;
     unsigned int        nbJoueurs;
     std::vector<Joueur> joueurs;
     std::vector<De*>    des;
+
+    PartieCulDeChouette();
+    ~PartieCulDeChouette();
 
     static PartieCulDeChouette* instance;
 
@@ -36,7 +36,7 @@ class PartieCulDeChouette
     std::vector<Joueur> getJoueurs() const;
 
     void setNbJoueurs(unsigned int nbJoueurs);
-    void lancerPartie(View& view);
+    void lancerPartie(VisuelPartie& visuelpartie);
     void lancerDes();
     void regleUtilisee();
 };
