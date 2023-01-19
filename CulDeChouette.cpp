@@ -7,24 +7,30 @@
 
 int main()
 {
-    VisuelPartie         visuelpartie;
+    VisuelPartie         visuelPartie;
     PartieCulDeChouette* partieCulDeChouette =
       PartieCulDeChouette::getInstance();
 
-    visuelpartie.afficherInformationLogiciel();
-    partieCulDeChouette->lancerPartie(visuelpartie);
-    visuelpartie.afficherJoueurs(partieCulDeChouette->getJoueurs());
+    visuelPartie.afficherInformationJeu();
+    partieCulDeChouette->lancerPartie(visuelPartie);
+    visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
 
-    for(unsigned int i = 0;
-        partieCulDeChouette->scoreJoueurActuel() < SCORE_GAGNANT;
-        i++)
+    while(partieCulDeChouette->scoreJoueurActuel() < SCORE_GAGNANT)
     {
-        visuelpartie.informerTour(partieCulDeChouette->tourActuel(),
-                                  partieCulDeChouette->getJoueurs());
+        visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
+                                     *partieCulDeChouette->getJoueurs());
 
         partieCulDeChouette->lancerDes();
-        partieCulDeChouette->regleUtilisee();
+        visuelPartie.afficherDes(partieCulDeChouette->getDes());
+        visuelPartie.afficherRegleUtilisee(
+          partieCulDeChouette->regleUtilisee());
         partieCulDeChouette->prochainTour();
+
+        if(partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
+        {
+            visuelPartie.afficherGagnant(partieCulDeChouette->tourActuel(),
+                                         *partieCulDeChouette->getJoueurs());
+        }
     }
 
     return 0;

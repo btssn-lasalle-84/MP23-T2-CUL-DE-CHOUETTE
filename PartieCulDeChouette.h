@@ -30,15 +30,16 @@ class PartieCulDeChouette
     static PartieCulDeChouette* getInstance();
     static void                 detruireInstance();
 
-    unsigned int        tourActuel() const;
-    unsigned int        prochainTour();
-    unsigned int        scoreJoueurActuel() const;
-    std::vector<Joueur> getJoueurs() const;
+    unsigned int         tourActuel() const;
+    unsigned int         prochainTour();
+    unsigned int         scoreJoueurActuel() const;
+    std::vector<Joueur>* getJoueurs() const;
+    std::vector<De*>     getDes() const;
 
-    void setNbJoueurs(unsigned int nbJoueurs);
-    void lancerPartie(VisuelPartie& visuelpartie);
-    void lancerDes();
-    void regleUtilisee();
+    void         setNbJoueurs(unsigned int nbJoueurs);
+    void         lancerPartie(VisuelPartie& visuelpartie);
+    void         lancerDes();
+    unsigned int regleUtilisee();
 };
 
 #endif
