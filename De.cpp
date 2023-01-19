@@ -7,6 +7,7 @@ using namespace std;
 
 De::De(unsigned int nbFaces /*=FACES*/) : nbFaces(nbFaces)
 {
+    srand((unsigned int)time(nullptr));
 }
 
 De::~De()
@@ -15,10 +16,7 @@ De::~De()
 
 void De::lancer()
 {
-    static default_random_engine nombre(
-      chrono::system_clock::now().time_since_epoch().count());
-    static uniform_int_distribution<int> generer(1, 7);
-    this->valeur = generer(nombre);
+    this->valeur = rand() % FACES + 1;
 }
 
 unsigned int De::getValeur() const

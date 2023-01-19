@@ -3,7 +3,7 @@
 #ifndef DE_H
 #define DE_H
 
-#define FACES 7
+#define FACES 6
 
 class De
 {
