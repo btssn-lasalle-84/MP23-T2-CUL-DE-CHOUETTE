@@ -6,6 +6,8 @@
 
 class Joueur;
 
+class De;
+
 class PartieCulDeChouette;
 
 class VisuelPartie
@@ -15,11 +17,16 @@ class VisuelPartie
     ~VisuelPartie();
 
     unsigned int saisirNbJoueurs();
-    std::string  saisirNom(unsigned int numeroJoueur) const;
+    std::string  saisirNom(unsigned int numeroJoueur);
 
-    void afficherInformationLogiciel() const;
-    void afficherJoueurs(std::vector<Joueur> joueurs) const;
-    void informerTour(unsigned int tour, std::vector<Joueur> joueurs) const;
+    void afficherInformationJeu();
+    void afficherJoueurs(std::vector<Joueur>& joueurs);
+    void informationTour(unsigned int         numeroDuTour,
+                         std::vector<Joueur>& joueurs);
+    void afficherGagnant(unsigned int         numeroDuTour,
+                         std::vector<Joueur>& joueurs);
+    void afficherRegleUtilisee(unsigned int regleUtilisee);
+    void afficherDes(std::vector<De*> de);
 };
 
 #endif // VisuelPartie_H
