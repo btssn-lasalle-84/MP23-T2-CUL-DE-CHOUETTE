@@ -5,6 +5,9 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
+#ifdef DEBUG
+#include <iostream>
+#endif
 
 using namespace std;
 
@@ -110,10 +113,13 @@ unsigned int PartieCulDeChouette::regleUtilisee()
     unsigned int regleUtilisee = 0;
     unsigned int score         = 0;
 
-    sort(des.begin(), des.end());
+    sort(des.begin(), des.end(), [](De const *de1, De const *de2) -> bool
+    {
+         return (de1->getValeur() < de2->getValeur());
+    });
 
-    if((des[0]->getValeur() == des[1]->getValeur()) ||
-       (des[1]->getValeur() == des[2]->getValeur()))
+    if((des[0]->getValeur() == des[1]->getValeur() && des[1]->getValeur() != des[2]->getValeur()) ||
+       (des[1]->getValeur() == des[2]->getValeur() && des[0]->getValeur() != des[0]->getValeur()))
     {
         if(des[0]->getValeur() == des[1]->getValeur())
         {
