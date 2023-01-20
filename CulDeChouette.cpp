@@ -1,33 +1,36 @@
 #include "Joueur.h"
 #include "De.h"
 #include "PartieCulDeChouette.h"
-#include "View.h"
+#include "VisuelPartie.h"
 
 #define SCORE_GAGNANT 343
 
 int main()
 {
-    View                 view;
+    VisuelPartie         visuelPartie;
     PartieCulDeChouette* partieCulDeChouette =
       PartieCulDeChouette::getInstance();
 
-    partieCulDeChouette->lancerPartie(view);
-    view.afficherJoueurs(partieCulDeChouette->getJoueurs());
+    visuelPartie.afficherInformationJeu();
+    partieCulDeChouette->lancerPartie(visuelPartie);
+    visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
 
-    while(true)
+    while(partieCulDeChouette->scoreJoueurActuel() < SCORE_GAGNANT)
     {
-        view.infoTour(partieCulDeChouette->tourActuel(),
-                      partieCulDeChouette->getJoueurs());
+        visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
+                                     *partieCulDeChouette->getJoueurs());
 
         partieCulDeChouette->lancerDes();
-        partieCulDeChouette->regleUtilisee();
+        visuelPartie.afficherDes(partieCulDeChouette->getDes());
+        visuelPartie.afficherRegleUtilisee(
+          partieCulDeChouette->regleUtilisee());
+        partieCulDeChouette->prochainTour();
 
         if(partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
         {
-            break;
+            visuelPartie.afficherGagnant(partieCulDeChouette->tourActuel(),
+                                         *partieCulDeChouette->getJoueurs());
         }
-
-        partieCulDeChouette->prochainTour();
     }
 
     return 0;
