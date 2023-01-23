@@ -5,9 +5,6 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-#ifdef DEBUG
-#include <iostream>
-#endif
 
 using namespace std;
 
@@ -63,6 +60,16 @@ unsigned int PartieCulDeChouette::scoreJoueurActuel() const
     return this->joueurs[numeroTour].getScore();
 }
 
+unsigned int PartieCulDeChouette::getScoreGagnant() const
+{
+    return this->scoreGagnant;
+}
+
+unsigned int PartieCulDeChouette::nbDePartie() const
+{
+    return this->nombreDePartie;
+}
+
 vector<Joueur>* PartieCulDeChouette::getJoueurs() const
 {
     vector<Joueur>* joueurs =
@@ -81,6 +88,11 @@ void PartieCulDeChouette::detruireInstance()
     instance->~PartieCulDeChouette();
 }
 
+void PartieCulDeChouette::choisirNombreDePartie(VisuelPartie& visuelPartie)
+{
+    this->nombreDePartie = visuelPartie.choisirNombreDePartie();
+}
+
 void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
 {
     this->nbJoueurs = nbJoueurs;
@@ -89,9 +101,11 @@ void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
 void PartieCulDeChouette::lancerPartie(VisuelPartie& visuelPartie)
 {
     string       nom;
-    unsigned int nbJoueurs = visuelPartie.saisirNbJoueurs();
+    unsigned int nbJoueurs    = visuelPartie.saisirNbJoueurs();
+    unsigned int nouveauScore = visuelPartie.choisirScoreGagnant();
 
-    instance->setNbJoueurs(nbJoueurs);
+    this->setNbJoueurs(nbJoueurs);
+    this->scoreGagnant = nouveauScore;
 
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {
@@ -100,8 +114,10 @@ void PartieCulDeChouette::lancerPartie(VisuelPartie& visuelPartie)
     }
 }
 
-void PartieCulDeChouette::lancerDes()
+void PartieCulDeChouette::lancerDes(VisuelPartie& visuelPartie)
 {
+    visuelPartie.lancementDes();
+
     for(int i = 0; i < NB_DES; i++)
     {
         this->des[i]->lancer();
