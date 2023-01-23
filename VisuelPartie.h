@@ -22,12 +22,14 @@ class VisuelPartie
     std::string  saisirNom(unsigned int numeroJoueur);
 
     void afficherInformationJeu();
-    void afficherJoueurs(std::vector<Joueur>& joueurs);
+    void informationPartie(unsigned int         scoreGagnant,
+                           std::vector<Joueur>& joueurs);
     void informationTour(unsigned int         numeroDuTour,
                          std::vector<Joueur>& joueurs);
     void afficherGagnant(unsigned int         numeroDuTour,
                          std::vector<Joueur>& joueurs);
     void afficherRegleUtilisee(unsigned int regleUtilisee);
+    void lancementDes();
     void afficherDes(std::vector<De*> de);
 };
 

@@ -15,7 +15,8 @@ int main()
     {
         visuelPartie.afficherInformationJeu();
         partieCulDeChouette->lancerPartie(visuelPartie);
-        visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
+        visuelPartie.informationPartie(partieCulDeChouette->getScoreGagnant(),
+                                       *partieCulDeChouette->getJoueurs());
 
         while(partieCulDeChouette->scoreJoueurActuel() <
               partieCulDeChouette->getScoreGagnant())
@@ -23,7 +24,7 @@ int main()
             visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
                                          *partieCulDeChouette->getJoueurs());
 
-            partieCulDeChouette->lancerDes();
+            partieCulDeChouette->lancerDes(visuelPartie);
             visuelPartie.afficherDes(partieCulDeChouette->getDes());
             visuelPartie.afficherRegleUtilisee(
               partieCulDeChouette->regleUtilisee());
