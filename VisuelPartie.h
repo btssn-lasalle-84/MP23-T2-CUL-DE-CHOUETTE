@@ -17,6 +17,7 @@ class VisuelPartie
     ~VisuelPartie();
 
     unsigned int saisirNbJoueurs();
+    unsigned int choisirScoreGagnant();
     std::string  saisirNom(unsigned int numeroJoueur);
 
     void afficherInformationJeu();
