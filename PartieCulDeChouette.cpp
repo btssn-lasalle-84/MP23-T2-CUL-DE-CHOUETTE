@@ -68,6 +68,11 @@ unsigned int PartieCulDeChouette::getScoreGagnant() const
     return this->scoreGagnant;
 }
 
+unsigned int PartieCulDeChouette::nbDePartie() const
+{
+    return this->nombreDePartie;
+}
+
 vector<Joueur>* PartieCulDeChouette::getJoueurs() const
 {
     vector<Joueur>* joueurs =
@@ -86,24 +91,24 @@ void PartieCulDeChouette::detruireInstance()
     instance->~PartieCulDeChouette();
 }
 
+void PartieCulDeChouette::choisirNombreDePartie(VisuelPartie& visuelPartie)
+{
+    this->nombreDePartie = visuelPartie.choisirNombreDePartie();
+}
+
 void PartieCulDeChouette::setNbJoueurs(unsigned int nbJoueurs)
 {
     this->nbJoueurs = nbJoueurs;
 }
 
-void PartieCulDeChouette::choisirScoreGagnant(VisuelPartie& visuelPartie)
-{
-    unsigned int nouveauScore = visuelPartie.choisirScoreGagnant();
-
-    this->scoreGagnant = nouveauScore;
-}
-
 void PartieCulDeChouette::lancerPartie(VisuelPartie& visuelPartie)
 {
     string       nom;
-    unsigned int nbJoueurs = visuelPartie.saisirNbJoueurs();
+    unsigned int nbJoueurs    = visuelPartie.saisirNbJoueurs();
+    unsigned int nouveauScore = visuelPartie.choisirScoreGagnant();
 
-    instance->setNbJoueurs(nbJoueurs);
+    this->setNbJoueurs(nbJoueurs);
+    this->scoreGagnant = nouveauScore;
 
     for(unsigned int i = 0; i < nbJoueurs; i++)
     {

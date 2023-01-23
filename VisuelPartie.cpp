@@ -40,6 +40,16 @@ unsigned int VisuelPartie::choisirScoreGagnant()
     return nouveauScore;
 }
 
+unsigned int VisuelPartie::choisirNombreDePartie()
+{
+    unsigned int nbDePartie;
+
+    cout << "Combien de partie voulez-vous jouer ?: " << endl;
+    cin >> nbDePartie;
+
+    return nbDePartie;
+}
+
 string VisuelPartie::saisirNom(unsigned int numeroJoueur)
 {
     string nom;
