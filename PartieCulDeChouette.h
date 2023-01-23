@@ -16,6 +16,7 @@ class PartieCulDeChouette
 {
   private:
     bool                estTerminee;
+    unsigned int        scoreGagnant;
     unsigned int        numeroTour;
     unsigned int        nbJoueurs;
     std::vector<Joueur> joueurs;
@@ -33,10 +34,12 @@ class PartieCulDeChouette
     unsigned int         tourActuel() const;
     unsigned int         prochainTour();
     unsigned int         scoreJoueurActuel() const;
+    unsigned int         getScoreGagnant() const;
     std::vector<Joueur>* getJoueurs() const;
     std::vector<De*>     getDes() const;
 
     void         setNbJoueurs(unsigned int nbJoueurs);
+    void         choisirScoreGagnant(VisuelPartie& visuelPartie);
     void         lancerPartie(VisuelPartie& visuelpartie);
     void         lancerDes();
     unsigned int regleUtilisee();

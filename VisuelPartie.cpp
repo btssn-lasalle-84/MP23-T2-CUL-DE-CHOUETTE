@@ -26,6 +26,20 @@ unsigned int VisuelPartie::saisirNbJoueurs()
     return nbJoueurs;
 }
 
+unsigned int VisuelPartie::choisirScoreGagnant()
+{
+    unsigned int nouveauScore;
+
+    cout << "Choissisez le score maximal: \n"
+         << "Niveau Facile: 100\n"
+         << "Niveau Moyen: 250\n"
+         << "Niveau compliqué: 343\n"
+         << endl;
+    cin >> nouveauScore;
+
+    return nouveauScore;
+}
+
 string VisuelPartie::saisirNom(unsigned int numeroJoueur)
 {
     string nom;

@@ -3,8 +3,6 @@
 #include "PartieCulDeChouette.h"
 #include "VisuelPartie.h"
 
-#define SCORE_GAGNANT 343
-
 int main()
 {
     VisuelPartie         visuelPartie;
@@ -12,10 +10,12 @@ int main()
       PartieCulDeChouette::getInstance();
 
     visuelPartie.afficherInformationJeu();
+    partieCulDeChouette->choisirScoreGagnant(visuelPartie);
     partieCulDeChouette->lancerPartie(visuelPartie);
     visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
 
-    while(partieCulDeChouette->scoreJoueurActuel() < SCORE_GAGNANT)
+    while(partieCulDeChouette->scoreJoueurActuel() <
+          partieCulDeChouette->getScoreGagnant())
     {
         visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
                                      *partieCulDeChouette->getJoueurs());
@@ -26,7 +26,8 @@ int main()
           partieCulDeChouette->regleUtilisee());
         partieCulDeChouette->prochainTour();
 
-        if(partieCulDeChouette->scoreJoueurActuel() >= SCORE_GAGNANT)
+        if(partieCulDeChouette->scoreJoueurActuel() >=
+           partieCulDeChouette->getScoreGagnant())
         {
             visuelPartie.afficherGagnant(partieCulDeChouette->tourActuel(),
                                          *partieCulDeChouette->getJoueurs());
