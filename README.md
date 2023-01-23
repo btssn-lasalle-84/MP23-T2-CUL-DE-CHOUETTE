@@ -17,13 +17,11 @@ Programme qui a pour but de reproduire le jeu du 'Cul de chouette' de la série 
     $ CulDeChouette.out
 ````
 
-## Version 1.0
+## Version 2.0
 
-1.  Saisir nom du joueur
-2.  Jouer une partie
-3.  Afficher le déroulement d'une partie
+La version 2.0 du programme permet désormais de saisir le nombre de parties que l'on veut jouer. On peut maintenant saisir le niveau de difficulté souhaité.
 
 ## Programme crée par
 
-Nathanaël   Chansard
-Mayeul      Fargier
+Nathanaël   Chansard mailto:nathanaelchansard@gmail.com
+Mayeul      Fargier mailto:mayeulfargier.pro@gmail.com
