@@ -9,30 +9,34 @@ int main()
     PartieCulDeChouette* partieCulDeChouette =
       PartieCulDeChouette::getInstance();
 
-    visuelPartie.afficherInformationJeu();
-    partieCulDeChouette->choisirScoreGagnant(visuelPartie);
-    partieCulDeChouette->lancerPartie(visuelPartie);
-    visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
+    partieCulDeChouette->choisirNombreDePartie(visuelPartie);
 
-    while(partieCulDeChouette->scoreJoueurActuel() <
-          partieCulDeChouette->getScoreGagnant())
+    for(unsigned int i = 0; i < partieCulDeChouette->nbDePartie(); i++)
     {
-        visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
-                                     *partieCulDeChouette->getJoueurs());
+        visuelPartie.afficherInformationJeu();
+        partieCulDeChouette->lancerPartie(visuelPartie);
+        visuelPartie.afficherJoueurs(*partieCulDeChouette->getJoueurs());
 
-        partieCulDeChouette->lancerDes();
-        visuelPartie.afficherDes(partieCulDeChouette->getDes());
-        visuelPartie.afficherRegleUtilisee(
-          partieCulDeChouette->regleUtilisee());
-        partieCulDeChouette->prochainTour();
-
-        if(partieCulDeChouette->scoreJoueurActuel() >=
-           partieCulDeChouette->getScoreGagnant())
+        while(partieCulDeChouette->scoreJoueurActuel() <
+              partieCulDeChouette->getScoreGagnant())
         {
-            visuelPartie.afficherGagnant(partieCulDeChouette->tourActuel(),
+            visuelPartie.informationTour(partieCulDeChouette->tourActuel(),
                                          *partieCulDeChouette->getJoueurs());
+
+            partieCulDeChouette->lancerDes();
+            visuelPartie.afficherDes(partieCulDeChouette->getDes());
+            visuelPartie.afficherRegleUtilisee(
+              partieCulDeChouette->regleUtilisee());
+            partieCulDeChouette->prochainTour();
+
+            if(partieCulDeChouette->scoreJoueurActuel() >=
+               partieCulDeChouette->getScoreGagnant())
+            {
+                visuelPartie.afficherGagnant(
+                  partieCulDeChouette->tourActuel(),
+                  *partieCulDeChouette->getJoueurs());
+            }
         }
     }
-
     return 0;
 }
