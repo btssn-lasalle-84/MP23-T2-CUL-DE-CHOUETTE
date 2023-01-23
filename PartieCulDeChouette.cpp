@@ -5,9 +5,6 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-#ifdef DEBUG
-#include <iostream>
-#endif
 
 using namespace std;
 
@@ -117,8 +114,10 @@ void PartieCulDeChouette::lancerPartie(VisuelPartie& visuelPartie)
     }
 }
 
-void PartieCulDeChouette::lancerDes()
+void PartieCulDeChouette::lancerDes(VisuelPartie& visuelPartie)
 {
+    visuelPartie.lancementDes();
+
     for(int i = 0; i < NB_DES; i++)
     {
         this->des[i]->lancer();

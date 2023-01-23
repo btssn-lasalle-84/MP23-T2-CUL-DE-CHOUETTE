@@ -43,7 +43,7 @@ class PartieCulDeChouette
     void         setNbJoueurs(unsigned int nbJoueurs);
     void         choisirNombreDePartie(VisuelPartie& visuelPartie);
     void         lancerPartie(VisuelPartie& visuelpartie);
-    void         lancerDes();
+    void         lancerDes(VisuelPartie& visuelPartie);
     unsigned int regleUtilisee();
 };
 
